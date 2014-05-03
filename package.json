@@ -1,0 +1,22 @@
+{
+  "name": "connexion-string",
+  "version": "0.1.0",
+  "description": "servers connexion string (de)serialization",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nherment/connexion-string.git"
+  },
+  "author": "Nicolas Herment <nherment@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nherment/connexion-string/issues"
+  },
+  "homepage": "https://github.com/nherment/connexion-string",
+  "dependencies": {
+    "mocha": "^1.18.2"
+  }
+}
