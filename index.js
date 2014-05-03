@@ -23,11 +23,15 @@ ConnString.prototype.parse = function(str) {
 
   if(credentials) {
     connexion.user = credentials.user
-    connexion.password = credentials.password || connexion.password
+    if(credentials.password) {
+      connexion.password = credentials.password
+    }
   }
 
   connexion.host = fullHost.host
-  connexion.port = fullHost.port || connexion.port
+  if(fullHost.port) {
+    connexion.port = fullHost.port
+  }
 
 
   return connexion
