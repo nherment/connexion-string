@@ -53,4 +53,48 @@ describe('connexion-string', function() {
     })
 
   })
+
+
+  describe('serialize', function() {
+
+    it('host', function() {
+      var expectedStr = '127.0.0.1'
+      var server = connStr.parse(expectedStr)
+      var actualStr = connStr.stringify(server)
+
+      assert.ok(actualStr)
+      assert.equal(actualStr, 'user@127.0.0.1:22')
+    })
+
+    it('user@host', function() {
+
+      var expectedStr = 'myName@127.0.0.1'
+      var server = connStr.parse(expectedStr)
+      var actualStr = connStr.stringify(server)
+
+      assert.ok(actualStr)
+      assert.equal(actualStr, 'myName@127.0.0.1:22')
+    })
+
+    it('user@host:port', function() {
+
+      var expectedStr = 'myName@127.0.0.1:2222'
+      var server = connStr.parse(expectedStr)
+      var actualStr = connStr.stringify(server)
+
+      assert.ok(actualStr)
+      assert.equal(actualStr, expectedStr)
+    })
+
+    it('user:pwd@host:port', function() {
+
+      var expectedStr = 'myName:123456@127.0.0.1:2222'
+      var server = connStr.parse(expectedStr)
+      var actualStr = connStr.stringify(server)
+
+      assert.ok(actualStr)
+      assert.equal(actualStr, expectedStr)
+    })
+
+  })
 })

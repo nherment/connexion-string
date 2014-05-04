@@ -64,4 +64,23 @@ function parseHost(host) {
   }
 }
 
+ConnString.prototype.stringify = function(serverObj) {
+  var serverStr
+  if(serverObj) {
+    serverStr = serverObj.host
+    if(serverObj.port || this._defaults.port) {
+      serverStr += ':' + serverObj.port
+    }
+    if(serverObj.user) {
+      var credentials = serverObj.user
+      if(serverObj.password) {
+        credentials += ':' + serverObj.password
+      }
+      serverStr = credentials + '@' + serverStr
+    }
+  }
+  return serverStr
+
+}
+
 module.exports = ConnString
